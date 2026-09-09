@@ -26,20 +26,26 @@ html,body{
 }
 
 .topbar{
-  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
-  gap:1.5vh 2vw;
-  padding:2.2vh 3vw;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:2vh 2vw;
+  padding:3.4vh 3vw;
   border-bottom:1px solid var(--line);
   flex-shrink:0;
 }
+.topbar-col{ min-width:0; }
+.topbar-brand-col{ display:flex; justify-content:flex-start; }
+.topbar-qr-col{ display:flex; justify-content:center; }
+.topbar-clock-col{ display:flex; justify-content:flex-end; }
 .brand{
   display:flex;align-items:center;gap:1vw;
   font-weight:800;letter-spacing:0.08em;
-  font-size:clamp(18px,2.4vw,32px);
+  font-size:clamp(26px,3.6vw,48px);
   text-transform:uppercase;
 }
 .brand .dot{
-  width:0.9vw;height:0.9vw;min-width:10px;min-height:10px;
+  width:1.1vw;height:1.1vw;min-width:13px;min-height:13px;
   border-radius:50%;
   background:var(--accent);
   box-shadow:0 0 18px var(--accent);
@@ -72,8 +78,8 @@ html,body{
   text-align:right;
   font-variant-numeric:tabular-nums;
 }
-.clock .time{font-size:clamp(20px,2.8vw,36px);font-weight:700;}
-.clock .date{font-size:clamp(16px,1.4vw,20px);color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;}
+.clock .time{font-size:clamp(28px,3.8vw,50px);font-weight:700;}
+.clock .date{font-size:clamp(18px,1.7vw,24px);color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;}
 
 .high-five-burst{
   position:absolute;
@@ -297,25 +303,28 @@ html,body{
 
 /* QR code (take it with you) */
 .qr-block{
-  position:absolute;
-  right:2.5vw;
-  bottom:2vh;
   display:flex;
-  flex-direction:column;
   align-items:center;
-  gap:0.7vh;
-  background:rgba(255,255,255,0.06);
+  gap:1vw;
+  background:linear-gradient(135deg, rgba(255,43,43,0.14), rgba(76,154,255,0.14));
   border:1px solid var(--line);
-  border-radius:16px;
-  padding:1.1vh 1.1vw;
-  z-index:15;
-  pointer-events:none;
+  border-radius:999px;
+  padding:0.8vh 1.6vw 0.8vh 0.8vh;
+}
+.qr-frame{
+  flex-shrink:0;
+  width:clamp(58px,4.6vw,84px);
+  height:clamp(58px,4.6vw,84px);
+  border-radius:14px;
+  padding:4px;
+  background:linear-gradient(135deg, var(--accent), #4c9aff);
+  box-shadow:0 2px 10px rgba(0,0,0,0.35);
 }
 .qr-code{
-  width:clamp(64px,7vmin,104px);
-  height:clamp(64px,7vmin,104px);
+  width:100%;
+  height:100%;
   background:#fff;
-  border-radius:8px;
+  border-radius:11px;
   padding:5px;
 }
 .qr-code svg{
@@ -323,14 +332,31 @@ html,body{
   width:100%;
   height:100%;
 }
+.qr-copy{
+  display:flex;
+  flex-direction:column;
+  gap:0.2vh;
+  line-height:1.2;
+}
 .qr-label{
-  font-size:clamp(11px,1.3vmin,14px);
-  font-weight:700;
-  letter-spacing:0.04em;
+  font-size:clamp(15px,1.3vw,20px);
+  font-weight:800;
+  letter-spacing:0.03em;
+  color:var(--white);
+  white-space:nowrap;
+}
+.qr-sub{
+  font-size:clamp(12px,1vw,15px);
   color:var(--muted);
-  text-align:center;
-  max-width:14ch;
-  line-height:1.25;
+  white-space:nowrap;
+}
+
+@media (max-width:700px){
+  .topbar{ grid-template-columns:1fr; row-gap:1.4vh; text-align:center; }
+  .topbar-brand-col,
+  .topbar-qr-col,
+  .topbar-clock-col{ justify-content:center; }
+  .clock{ text-align:center; }
 }
 
 /* Fireworks (cheer) overlay */

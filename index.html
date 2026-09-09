@@ -11,10 +11,25 @@
 
 <div class="sign">
   <div class="topbar">
-    <div class="brand"><span class="dot"></span>Philly Sports</div>
-    <div class="clock">
-      <div class="time" id="clockTime">--:--</div>
-      <div class="date" id="clockDate">--</div>
+    <div class="topbar-col topbar-brand-col">
+      <div class="brand"><span class="dot"></span>Philly Sports</div>
+    </div>
+    <div class="topbar-col topbar-qr-col">
+      <div class="qr-block" id="qrBlock">
+        <div class="qr-frame">
+          <div class="qr-code" id="qrCode"></div>
+        </div>
+        <div class="qr-copy">
+          <div class="qr-label">Take it with you</div>
+          <div class="qr-sub">Scan for live scores</div>
+        </div>
+      </div>
+    </div>
+    <div class="topbar-col topbar-clock-col">
+      <div class="clock">
+        <div class="time" id="clockTime">--:--</div>
+        <div class="date" id="clockDate">--</div>
+      </div>
     </div>
   </div>
 
@@ -28,10 +43,6 @@
     </div>
     <div id="cardsContainer"></div>
     <canvas id="fireworksCanvas" class="fireworks-canvas"></canvas>
-    <div class="qr-block" id="qrBlock">
-      <div class="qr-code" id="qrCode"></div>
-      <div class="qr-label">Scan &amp; take it with you</div>
-    </div>
   </div>
 
   <div class="rail">
