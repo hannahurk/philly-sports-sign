@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="./style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Philly Sports Sign</title>
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 </head>
 <body>
 
@@ -27,6 +28,10 @@
     </div>
     <div id="cardsContainer"></div>
     <canvas id="fireworksCanvas" class="fireworks-canvas"></canvas>
+    <div class="qr-block" id="qrBlock">
+      <div class="qr-code" id="qrCode"></div>
+      <div class="qr-label">Scan &amp; take it with you</div>
+    </div>
   </div>
 
   <div class="rail">

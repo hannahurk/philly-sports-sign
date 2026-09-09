@@ -4,6 +4,8 @@ const TEAMS = [
   { key:'nba',  sport:'basketball', league:'nba',   id:'phi',    label:'NBA', name:'76ers'    },
   { key:'nhl',  sport:'hockey',     league:'nhl',   id:'phi',    label:'NHL', name:'Flyers'   },
   { key:'mls',  sport:'soccer',     league:'usa.1', id:'10739',  label:'MLS', name:'Union'    },
+  { key:'ncaaf-penn', sport:'football',   league:'college-football',       id:'219', label:'NCAAF', name:'Penn Quakers' },
+  { key:'ncaab-penn', sport:'basketball', league:'mens-college-basketball', id:'219', label:'NCAAM', name:'Penn Quakers' },
 ];
 
 const ROTATE_MS = 9000;
@@ -34,7 +36,7 @@ async function fetchTeam(t){
       home = competitors.find(c => c.homeAway === 'home');
       away = competitors.find(c => c.homeAway === 'away');
       if(home && away){
-        const homeIsUs = home.team && home.team.abbreviation === 'PHI';
+        const homeIsUs = home.team && home.team.id === team.id;
         own = homeIsUs ? home : away;
         opp = homeIsUs ? away : home;
       }
@@ -516,5 +518,15 @@ tickClock();
 setInterval(tickClock, 1000 * 30);
 
 initGestureLayer();
+
+function renderQrCode(){
+  const el = document.getElementById('qrCode');
+  if(!el || typeof qrcode === 'undefined') return;
+  const qr = qrcode(0, 'M');
+  qr.addData(window.location.href);
+  qr.make();
+  el.innerHTML = qr.createSvgTag({ scalable: true });
+}
+renderQrCode();
 
 loadAll();
