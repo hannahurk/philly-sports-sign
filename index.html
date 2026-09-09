@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="./style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Philly Sports Sign</title>
+</head>
+<body>
+
+<div class="sign">
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>Philly Sports</div>
+    <div class="clock">
+      <div class="time" id="clockTime">--:--</div>
+      <div class="date" id="clockDate">--</div>
+    </div>
+  </div>
+
+  <div class="stage" id="stage">
+    <div class="loading-msg" id="loadingMsg">Loading live scores…</div>
+    <div class="live-banner" id="liveBanner">
+      <span class="live-banner-dot"></span>
+      <span id="liveBannerText">2 GAMES LIVE NOW</span>
+      <span class="swipe-icon">👋 ⇄</span>
+      <span>SWIPE TO SWITCH</span>
+    </div>
+    <div id="cardsContainer"></div>
+    <canvas id="fireworksCanvas" class="fireworks-canvas"></canvas>
+  </div>
+
+  <div class="rail">
+    <div class="high-five-badge" id="highFiveBadge">
+      <span class="high-five-emoji">🙌</span>
+      <span id="highFiveCount">0</span>
+      <span class="high-five-label" id="highFiveLabel">HIGH FIVES</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="dots" id="dots"></div>
+  </div>
+</div>
+
+<script src="./script.js"></script>
+</body>
+</html>
