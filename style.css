@@ -11,14 +11,21 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 html,body{
   width:100%;height:100%;
-  background:var(--bg);
+  background:#000;
   color:var(--white);
   font-family:'Helvetica Neue',Arial,sans-serif;
   overflow:hidden;
 }
+body{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 .sign{
   position:relative;
-  width:100vw;height:100vh;
+  height:100vh;
+  width:min(100vw, calc(100vh * 9 / 16));
+  container-type:inline-size;
   display:flex;flex-direction:column;
   background:
     radial-gradient(ellipse at top left, rgba(255,255,255,0.05), transparent 60%),
@@ -29,8 +36,8 @@ html,body{
   display:grid;
   grid-template-columns:1fr auto 1fr;
   align-items:center;
-  gap:2vh 2vw;
-  padding:3.4vh 3vw;
+  gap:2vh 2cqw;
+  padding:3.4vh 3cqw;
   border-bottom:1px solid var(--line);
   flex-shrink:0;
 }
@@ -39,13 +46,13 @@ html,body{
 .topbar-qr-col{ display:flex; justify-content:center; }
 .topbar-clock-col{ display:flex; justify-content:flex-end; }
 .brand{
-  display:flex;align-items:center;gap:1vw;
+  display:flex;align-items:center;gap:1cqw;
   font-weight:800;letter-spacing:0.08em;
-  font-size:clamp(26px,3.6vw,48px);
+  font-size:clamp(26px,3.6cqw,48px);
   text-transform:uppercase;
 }
 .brand .dot{
-  width:1.1vw;height:1.1vw;min-width:13px;min-height:13px;
+  width:1.1cqw;height:1.1cqw;min-width:13px;min-height:13px;
   border-radius:50%;
   background:var(--accent);
   box-shadow:0 0 18px var(--accent);
@@ -56,20 +63,20 @@ html,body{
   50%{opacity:0.5;transform:scale(0.7);}
 }
 .high-five-badge{
-  display:flex;align-items:center;gap:0.5vw;
+  display:flex;align-items:center;gap:0.5cqw;
   background:rgba(255,255,255,0.06);
   border:1px solid var(--line);
-  padding:0.9vh 1.3vw;
+  padding:0.9vh 1.3cqw;
   border-radius:999px;
   font-weight:800;
   font-variant-numeric:tabular-nums;
-  font-size:clamp(18px,1.6vw,23px);
+  font-size:clamp(18px,1.6cqw,23px);
   transition:transform 0.15s ease;
 }
 .high-five-badge.pop{ transform:scale(1.12); }
 .high-five-emoji{ font-size:1.15em; }
 .high-five-label{
-  font-size:clamp(14px,1.3vw,18px);
+  font-size:clamp(14px,1.3cqw,18px);
   letter-spacing:0.1em;
   color:var(--muted);
   font-weight:700;
@@ -78,13 +85,13 @@ html,body{
   text-align:right;
   font-variant-numeric:tabular-nums;
 }
-.clock .time{font-size:clamp(28px,3.8vw,50px);font-weight:700;}
-.clock .date{font-size:clamp(18px,1.7vw,24px);color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;}
+.clock .time{font-size:clamp(28px,3.8cqw,50px);font-weight:700;}
+.clock .date{font-size:clamp(18px,1.7cqw,24px);color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;}
 
 .high-five-burst{
   position:absolute;
   pointer-events:none;
-  font-size:clamp(40px,7vw,96px);
+  font-size:clamp(40px,7cqw,96px);
   transform:translate(-50%,-50%) scale(0.4);
   opacity:0;
   z-index:10;
@@ -102,11 +109,11 @@ html,body{
   flex:1;
   position:relative;
   display:flex;align-items:center;justify-content:center;
-  padding:2vh 4vw;
+  padding:2vh 4cqw;
 }
 .card{
   position:absolute;
-  inset:2vh 4vw;
+  inset:2vh 4cqw;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -126,8 +133,8 @@ html,body{
   min-width:0;
 }
 .logo-wrap{
-  width:clamp(90px,14vw,190px);
-  height:clamp(90px,14vw,190px);
+  width:clamp(90px,14cqw,190px);
+  height:clamp(90px,14cqw,190px);
   border-radius:28px;
   display:flex;align-items:center;justify-content:center;
   background:var(--card);
@@ -136,7 +143,7 @@ html,body{
 }
 .logo-wrap img{width:72%;height:72%;object-fit:contain;}
 .team-meta .league{
-  font-size:clamp(16px,1.5vw,22px);
+  font-size:clamp(16px,1.5cqw,22px);
   letter-spacing:0.15em;
   color:var(--muted);
   text-transform:uppercase;
@@ -144,14 +151,14 @@ html,body{
   margin-bottom:0.6vh;
 }
 .team-meta .name{
-  font-size:clamp(30px,5.2vw,74px);
+  font-size:clamp(30px,5.2cqw,74px);
   font-weight:800;
   line-height:1.02;
   letter-spacing:-0.01em;
 }
 .team-meta .record{
   margin-top:1.2vh;
-  font-size:clamp(18px,1.8vw,26px);
+  font-size:clamp(18px,1.8cqw,26px);
   color:var(--muted);
   font-weight:600;
 }
@@ -164,7 +171,7 @@ html,body{
   min-width:0;
 }
 .status-pill{
-  font-size:clamp(16px,1.3vw,20px);
+  font-size:clamp(16px,1.3cqw,20px);
   font-weight:800;
   letter-spacing:0.1em;
   text-transform:uppercase;
@@ -187,40 +194,40 @@ html,body{
   vertical-align:middle;
 }
 .vs-row{
-  display:flex;align-items:center;gap:1.6vw;
+  display:flex;align-items:center;gap:1.6cqw;
 }
 .vs-team{
-  display:flex;align-items:center;gap:0.9vw;
+  display:flex;align-items:center;gap:0.9cqw;
 }
 .vs-team img{
-  width:clamp(34px,3.6vw,52px);height:clamp(34px,3.6vw,52px);
+  width:clamp(34px,3.6cqw,52px);height:clamp(34px,3.6cqw,52px);
   object-fit:contain;
 }
 .vs-team .abbr{
-  font-size:clamp(20px,2.2vw,30px);
+  font-size:clamp(20px,2.2cqw,30px);
   font-weight:700;
   color:var(--muted);
 }
 .score{
-  font-size:clamp(40px,6.4vw,92px);
+  font-size:clamp(40px,6.4cqw,92px);
   font-weight:800;
   font-variant-numeric:tabular-nums;
   line-height:1;
 }
 .vs-sep{
-  font-size:clamp(18px,2vw,26px);
+  font-size:clamp(18px,2cqw,26px);
   color:var(--muted);
   font-weight:700;
 }
 .game-detail{
-  font-size:clamp(18px,1.7vw,24px);
+  font-size:clamp(18px,1.7cqw,24px);
   color:var(--muted);
   font-weight:600;
 }
 
 .rail{
   flex-shrink:0;
-  padding:2vh 4vw 3vh;
+  padding:2vh 4cqw 3vh;
   display:flex;flex-direction:column;align-items:center;gap:1.4vh;
 }
 .progress-track{
@@ -235,10 +242,10 @@ html,body{
   width:0%;
 }
 .dots{
-  display:flex;justify-content:center;gap:0.9vw;
+  display:flex;justify-content:center;gap:0.9cqw;
 }
 .dots span{
-  width:0.7vw;height:0.7vw;min-width:8px;min-height:8px;
+  width:0.7cqw;height:0.7cqw;min-width:8px;min-height:8px;
   border-radius:50%;
   background:rgba(255,255,255,0.15);
   transition:background 0.3s ease, transform 0.3s ease;
@@ -249,7 +256,7 @@ html,body{
 }
 
 .coming-soon-icon{
-  font-size:clamp(65px,10.1vw,137px);
+  font-size:clamp(65px,10.1cqw,137px);
   line-height:1;
 }
 .status-pill.coming-soon-pill{
@@ -260,7 +267,7 @@ html,body{
   position:absolute;inset:0;
   display:flex;align-items:center;justify-content:center;
   color:var(--muted);
-  font-size:clamp(18px,1.8vw,24px);
+  font-size:clamp(18px,1.8cqw,24px);
   letter-spacing:0.05em;
 }
 
@@ -268,12 +275,12 @@ html,body{
   position:absolute;
   top:1.5vh;left:50%;
   transform:translateX(-50%) translateY(-10px);
-  display:flex;align-items:center;gap:0.8vw;
+  display:flex;align-items:center;gap:0.8cqw;
   background:rgba(255,59,59,0.14);
   border:1px solid rgba(255,59,59,0.4);
-  padding:1vh 1.6vw;
+  padding:1vh 1.6cqw;
   border-radius:999px;
-  font-size:clamp(16px,1.3vw,20px);
+  font-size:clamp(16px,1.3cqw,20px);
   font-weight:800;
   letter-spacing:0.08em;
   text-transform:uppercase;
@@ -305,16 +312,16 @@ html,body{
 .qr-block{
   display:flex;
   align-items:center;
-  gap:1vw;
+  gap:1cqw;
   background:linear-gradient(135deg, rgba(255,43,43,0.14), rgba(76,154,255,0.14));
   border:1px solid var(--line);
   border-radius:999px;
-  padding:0.8vh 1.6vw 0.8vh 0.8vh;
+  padding:0.8vh 1.6cqw 0.8vh 0.8vh;
 }
 .qr-frame{
   flex-shrink:0;
-  width:clamp(58px,4.6vw,84px);
-  height:clamp(58px,4.6vw,84px);
+  width:clamp(58px,4.6cqw,84px);
+  height:clamp(58px,4.6cqw,84px);
   border-radius:14px;
   padding:4px;
   background:linear-gradient(135deg, var(--accent), #4c9aff);
@@ -339,19 +346,19 @@ html,body{
   line-height:1.2;
 }
 .qr-label{
-  font-size:clamp(15px,1.3vw,20px);
+  font-size:clamp(15px,1.3cqw,20px);
   font-weight:800;
   letter-spacing:0.03em;
   color:var(--white);
   white-space:nowrap;
 }
 .qr-sub{
-  font-size:clamp(12px,1vw,15px);
+  font-size:clamp(12px,1cqw,15px);
   color:var(--muted);
   white-space:nowrap;
 }
 
-@media (max-width:700px){
+@container (max-width:700px){
   .topbar{ grid-template-columns:1fr; row-gap:1.4vh; text-align:center; }
   .topbar-brand-col,
   .topbar-qr-col,
