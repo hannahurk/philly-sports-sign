@@ -180,7 +180,6 @@ function startProgress(){
   progressStart = performance.now();
   const fill = document.getElementById('progressFill');
   fill.style.width = '0%';
-  if(multiLiveActive) return;
   function tick(now){
     const elapsed = now - progressStart;
     const pct = Math.min(100, (elapsed / ROTATE_MS) * 100);
@@ -195,7 +194,6 @@ function startProgress(){
 function startRotation(){
   clearInterval(rotateTimer);
   startProgress();
-  if(multiLiveActive) return;
   rotateTimer = setInterval(() => {
     const next = (activeIndex + 1) % teamData.length;
     setActive(next);
@@ -230,13 +228,11 @@ function goRelative(delta){
   const next = (activeIndex + delta + teamData.length) % teamData.length;
   setActive(next);
 
-  if(!multiLiveActive){
-    clearInterval(rotateTimer);
-    rotateTimer = setInterval(() => {
-      const n = (activeIndex + 1) % teamData.length;
-      setActive(n);
-    }, ROTATE_MS);
-  }
+  clearInterval(rotateTimer);
+  rotateTimer = setInterval(() => {
+    const n = (activeIndex + 1) % teamData.length;
+    setActive(n);
+  }, ROTATE_MS);
 }
 
 function initGestureLayer(){

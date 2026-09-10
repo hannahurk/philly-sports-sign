@@ -275,21 +275,26 @@ body{
   position:absolute;
   top:1.5vh;left:50%;
   transform:translateX(-50%) translateY(-10px);
-  display:flex;align-items:center;gap:0.8cqw;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+  gap:0.4vh 1.6cqw;
+  width:max-content;
+  max-width:88cqw;
   background:rgba(255,59,59,0.14);
   border:1px solid rgba(255,59,59,0.4);
-  padding:1vh 1.6cqw;
-  border-radius:999px;
-  font-size:clamp(16px,1.3cqw,20px);
+  padding:0.9vh 3.5cqw;
+  border-radius:20px;
+  font-size:clamp(14px,1.3cqw,20px);
   font-weight:800;
-  letter-spacing:0.08em;
+  letter-spacing:0.06em;
   text-transform:uppercase;
+  text-align:center;
   color:#ffb3b3;
   opacity:0;
   pointer-events:none;
   transition:opacity 0.4s ease, transform 0.4s ease;
   z-index:5;
 }
+.live-banner span{ white-space:nowrap; }
 .live-banner.show{
   opacity:1;
   transform:translateX(-50%) translateY(0);
